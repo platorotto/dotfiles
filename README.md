@@ -3,8 +3,6 @@ Básicamente acá voy a ir subiendo todo lo que necesite para hacer que mi compu
 
 ## Configs por subir
 - i3
-- i3blocks
-- rofi
 - dunst
 
 ## Programas
