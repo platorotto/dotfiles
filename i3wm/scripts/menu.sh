@@ -8,9 +8,9 @@ menu=$(echo -e "$opciones" | dmenu -i -p "menu:")
 if [[ "$menu" == "display" ]]; then
 	display=$(echo -e "mirror\nexterno\nlaptop" | dmenu -i -p "menu:")
 	case "$display" in
-		mirror) bash ~/Scripts/i3modules/duplicar.sh ;;
-		externo) bash ~/Scripts/i3modules/externo.sh ;;
-		laptop) bash ~/Scripts/i3modules/laptop.sh ;;
+		mirror) bash ~/i3wm/scripts/duplicar.sh ;;
+		externo) bash ~/i3wm/scripts/externo.sh ;;
+		laptop) bash ~/i3wm/scripts/laptop.sh ;;
 	esac
 elif [[ "$menu" == "power" ]]; then
 	power=$(echo -e "shutdown\nreboot\nsuspend" | dmenu -i -p "menu:")
