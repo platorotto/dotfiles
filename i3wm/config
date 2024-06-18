@@ -31,9 +31,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Use brightnessctl to adjust brightness.
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
@@ -189,7 +189,6 @@ client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 client.background       #FFFFFF
 
 exec --no-startup-id picom -b --backend glx --vsync
-exec --no-startup-id dunst
 exec --no-startup-id flameshot
 exec_always --no-startup-id xinput set-prop "USB OPTICAL MOUSE" "libinput Accel Profile Enabled" 0 1
 exec_always --no-startup-id feh --bg-fill /home/alejandro/i3wm/Wallpaper_Asuka.jpg
@@ -200,4 +199,4 @@ focus_follows_mouse no
 bindsym mod4+space exec --no-startup-id bash /home/alejandro/i3wm/scripts/idioma.sh
 bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+x exec --no-startup-id bash /home/alejandro/i3wm/scripts/menu.sh
-bindsym $mod+f exec --no-startup-id flatpak run org.mozilla.firefox
+bindsym $mod+f exec --no-startup-id firefox-esr
