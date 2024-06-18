@@ -8,7 +8,7 @@ menu=$(echo -e "$opciones" | dmenu -i -p "menu:")
 if [[ "$menu" == "display" ]]; then
 	display=$(echo -e "mirror\nexterno\nlaptop" | dmenu -i -p "menu:")
 	case "$display" in
-		mirror) bash ~/i3wm/scripts/duplicar.sh ;;
+		mirror) bash ~/i3wm/scripts/mirror.sh ;;
 		externo) bash ~/i3wm/scripts/externo.sh ;;
 		laptop) bash ~/i3wm/scripts/laptop.sh ;;
 	esac
