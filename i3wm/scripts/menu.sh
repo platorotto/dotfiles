@@ -17,6 +17,6 @@ elif [[ "$menu" == "power" ]]; then
 	case "$power" in
 		shutdown) systemctl poweroff ;;
 		reboot) systemctl reboot ;;
-		suspend) systemctl hybrid-sleep ;;
+		suspend) systemctl suspend ;;
 	esac
 fi
