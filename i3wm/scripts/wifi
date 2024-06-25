@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+blanco="#D3DAE3"
+rojo="#B81D13"
+
+wifi=$(nmcli connection show --active | awk '/wlo1/ {print $1}')
+estado=$(nmcli networking connectivity)
+
+if [[ "$estado" == "full" ]]; then
+	echo "<span color='$blanco'>󰖩</span> <span color='$blanco'>$wifi</span>"
+else
+	echo "<span color='$rojo'>󰖪</span> <span color='$rojo'>down</span>"
+fi

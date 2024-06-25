@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+
+# Funcion para encontrar el monitor conectado
+monitor() {
+if xrandr | grep "DP-1 disconnected"; then
+	monitor="DP-2"
+elif xrandr | grep "DP-2 disconnected"; then
+	monitor="DP-1"
+else
+	monitor="HDMI-1"
+fi
+}
+
+monitor
+externo=$monitor
+
+# Duplicar monitores
+xrandr --output eDP-1 --mode 1920x1080 --primary --auto
+xrandr --output "$externo" --same-as eDP-1
