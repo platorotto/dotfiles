@@ -194,5 +194,4 @@ focus_follows_mouse no
 bindsym $mod+space exec --no-startup-id bash /home/alejandro/i3wm/scripts/idioma | exec pkill -SIGRTMIN+11 i3blocks
 bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+x exec --no-startup-id bash /home/alejandro/i3wm/scripts/menu
-bindsym $mod+a exec --no-startup-id bash /home/alejandro/i3wm/scripts/parlante
 bindsym $mod+f exec --no-startup-id firefox
