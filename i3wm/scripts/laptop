@@ -1,6 +1,5 @@
 #!/usr/bin/bash
 
-# Funcion para encontrar el monitor conectado
 externo() {
 if xrandr | grep "HDMI-1 connected"; then
 	externo="HDMI-1"
@@ -14,6 +13,5 @@ fi
 externo
 monitor=$externo
 
-# Apagar monitores y prender interno
 xrandr --output "$monitor" --off
-xrandr --output eDP-1 --mode 1920x1080 --primary --auto
+xrandr --output eDP-1 --mode 1920x1080 --rate 60.00 --primary
