@@ -10,41 +10,22 @@ state=$(cat /sys/class/power_supply/BAT0/status)
 
 if [[ "10" -ge "$bat" ]]; then
 	color="$rojo"
-	symbol="󰁺"
-elif [[ "20" -ge "$bat" ]]; then
+	symbol="󰂎"
+elif [[ "25" -ge "$bat" ]]; then
 	color="$amarillo"
-	symbol="󰁻"
-elif [[ "30" -ge "$bat" ]]; then
+	symbol="󱊡"
+elif [[ "75" -ge "$bat" ]]; then
         color="$blanco"
-        symbol="󰁼"
-elif [[ "40" -ge "$bat" ]]; then
-        color="$blanco"
-        symbol="󰁽"
-elif [[ "50" -ge "$bat" ]]; then
-        color="$blanco"
-        symbol="󰁾"
-elif [[ "60" -ge "$bat" ]]; then
-        color="$blanco"
-        symbol="󰁿"
-elif [[ "70" -ge "$bat" ]]; then
-        color="$blanco"
-        symbol="󰂀"
-elif [[ "80" -ge "$bat" ]]; then
-        color="$blanco"
-        symbol="󰂁"
-elif [[ "90" -ge "$bat" ]]; then
-        color="$blanco"
-        symbol="󰂂"
+        symbol="󱊢"
 elif [[ "100" -ge "$bat" ]]; then
-	color="$blanco"
-	symbol="󰁹"
+        color="$blanco"
+        symbol="󱊣"
 fi
-
 
 if [[ $state == "Discharging" ]]; then
 	echo "<span color='$color'>$symbol</span> <span color='$blanco'>$bat%</span>"
 elif [[ $state == "Charging" ]]; then
 	echo "<span color='$amarillo'>󱐋</span> <span color='$blanco'>$bat%</span>"
 else
-	echo "<span color='$verde'>󰁹</span> <span color='$blanco'>FULL</span>"
+	echo "<span color='$verde'>󱊣</span> <span color='$blanco'>FULL</span>"
 fi
