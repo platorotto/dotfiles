@@ -1,22 +1,19 @@
 #!/usr/bin/bash
 
-# Opciones del menu
-opciones="display\npower"
-menu=$(echo -e "$opciones" | dmenu -i -p "menu:")
-
-# condicionales del menu
-if [[ "$menu" == "display" ]]; then
-	display=$(echo -e "mirror\nexterno\nlaptop" | dmenu -i -p "menu:")
-	case "$display" in
-		mirror) bash ~/i3wm/scripts/mirror ;;
-		externo) bash ~/i3wm/scripts/externo ;;
-		laptop) bash ~/i3wm/scripts/laptop ;;
-	esac
-elif [[ "$menu" == "power" ]]; then
-	power=$(echo -e "shutdown\nreboot\nsuspend" | dmenu -i -p "menu:")
-	case "$power" in
-		shutdown) systemctl poweroff ;;
-		reboot) systemctl reboot ;;
-		suspend) systemctl suspend ;;
-	esac
+# Funcion para encontrar el monitor conectado
+monitor() {
+if xrandr | grep "DP-1 disconnected"; then
+	monitor="DP-2"
+elif xrandr | grep "DP-2 disconnected"; then
+	monitor="DP-1"
+else
+	monitor="HDMI-1"
 fi
+}
+
+monitor
+externo=$monitor
+
+# Duplicar monitores
+xrandr --output eDP-1 --mode 1920x1080 --rate 60.00 --primary
+xrandr --output "$externo" --same-as eDP-1
