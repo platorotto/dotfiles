@@ -1,7 +1,6 @@
 #!/usr/bin/bash
 
-opciones="display\npower"
-menu=$(echo -e "$opciones" | dmenu -i -p "menu:")
+menu=$(echo -e "display\npower" | dmenu -i -p "menu:")
 
 if [[ "$menu" == "display" ]]; then
 	display=$(echo -e "mirror\nexterno\nlaptop" | dmenu -i -p "menu:")
