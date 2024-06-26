@@ -7,14 +7,14 @@ if [[ "$menu" == "display" ]]; then
 	case "$display" in
 		mirror) bash ~/i3wm/scripts/mirror ;;
 		externo) bash ~/i3wm/scripts/externo ;;
-		laptop) bash ~/i3wm/scripts/laptop ;;
+		laptop) bash ~/i3wm/scripts/laptop
 	esac
 elif [[ "$menu" == "power" ]]; then
 	power=$(echo -e "shutdown\nreboot\nsuspend" | dmenu -i -p "menu:")
 	case "$power" in
 		shutdown) systemctl poweroff ;;
 		reboot) systemctl reboot ;;
-		suspend) systemctl suspend ;;
+		suspend) systemctl suspend
 	esac
 elif [[ "$menu" == "output" ]]; then
 	output=$(echo -e "headset\nlaptop" | dmenu -i -p "menu:")
