@@ -8,4 +8,4 @@ Básicamente acá voy a ir subiendo todo lo que necesite para hacer que mi compu
 
 `yay` - onlyoffice-bin rstudio-desktop-bin zotero-bin modrinth-app-git
 
-`rstudio` - tidyverse ggplot2 DescTools
+`rstudio` - tidyverse DescTools plotly
