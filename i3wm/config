@@ -154,10 +154,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --rate 60.00 --primary
 exec --no-startup-id picom -b --backend glx --vsync
 exec --no-startup-id flameshot
-exec_always killall polybar
 exec_always --no-startup-id bash /home/alejandro/i3wm/launch.sh
 exec_always --no-startup-id xinput set-prop "USB OPTICAL MOUSE" "libinput Accel Profile Enabled" 0 1
 exec_always --no-startup-id feh --bg-fill /home/alejandro/i3wm/lockin.jpg
