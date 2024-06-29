@@ -1,9 +1,0 @@
-#!/usr/bin/bash
-
-idioma=$(setxkbmap -query | awk '/layout/{print $2}')
-
-if [[ "$idioma" == "es" ]]; then
-	echo "<span color='#D3DAE3'>es</span>"
-elif [[ "$idioma" == "us" ]]; then
-	echo "<span color='#D3DAE3'>us</span>"
-fi
