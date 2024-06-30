@@ -4,8 +4,8 @@ Básicamente acá voy a ir subiendo todo lo que necesite para hacer que mi compu
 ## Software
 `installation` - vim xorg ly i3 alacritty dmenu rofi polybar firefox tlp brightnessctl dunst picom feh ranger zathura networkmanager pulseaudio unzip git network-manager-applet lxappearance
 
-`pacman` - obs-studio ncspot discord flameshot 
+`pacman` - obs-studio ncspot discord flameshot libreoffice-fresh
 
-`yay` - onlyoffice-bin rstudio-desktop-bin zotero-bin modrinth-app-git adwaita-dark
+`yay` - rstudio-desktop-bin zotero-bin modrinth-app-git adwaita-dark
 
 `rstudio` - tidyverse DescTools plotly
