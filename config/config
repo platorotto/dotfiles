@@ -1,0 +1,170 @@
+#
+# Creado por el SirCmpwn pero editado por Plato!! :3
+# Va para ~/.config/sway/config
+#
+
+#
+# -- Autostart Applications --
+#
+
+# Auth with mate-polkit:
+exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
+
+# Import environment variables for user systemd service manager
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+# Update dbux environments with display variables
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+# Start foot server
+exec_always --no-startup-id foot --server
+
+# Network Applet
+exec nm-applet --indicator
+
+# Firewall Applet
+exec sleep 2 && firewall-applet
+
+# Bluetooth Applet
+exec blueman-applet 
+
+# nwg-drawer
+exec_always nwg-drawer -r -c 7 -is 90 -mb 10 -ml 50 -mr 50 -mt 10
+
+#
+# -- Default --
+#
+
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+# Add Vim key support
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Set default terminal emulator
+set $term footclient
+
+# Application launcher
+set $launcher fuzzel
+
+# Application menu
+set $menu nwg-drawer
+
+# Power Menu
+set $powermenu ~/.config/sway/scripts/power_menu.sh
+
+### Idle configuration
+exec swayidle idlehint 1
+exec_always swayidle -w before-sleep "$lock"
+set $lock swaylock -C ~/.config/swaylock/config
+
+### Key bindings
+#
+# Basics:
+#
+    # Launch the terminal
+    bindsym $mod+Return exec $term
+
+    # Open the power menu
+    bindsym $mod+Shift+e exec $powermenu
+
+    # Kill focused window
+    bindsym $mod+q kill
+
+    # Start your launcher
+    bindsym $mod+d exec $launcher
+
+    # Menu
+    bindsym $mod+Shift+d exec $menu
+
+    # Lock screen
+    bindsym $mod+f1 exec $lock
+
+    # Activities
+    bindsym $mod+p exec ~/.config/sway/scripts/window_switcher.sh
+
+#
+# -- Input -- 
+#
+
+### Input configuration
+#
+# Read `man 5 sway-input` for more information about this section.
+
+# Touchpad configuration
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+}
+
+# Enable numlock by default
+input type:keyboard xkb_numlock enabled
+
+# # Toggle between keyboard layouts. This example has the "us" and "gb"
+# # keyboard layouts, and uses Alt+Shift to toggle between them.
+input "type:keyboard" {
+	xkb_layout "us"
+	xkb_variant "altgr-intl"
+	xkb_options "caps:escape"
+}
+
+input "type:pointer" {
+	accel_profile "flat"
+}
+
+#
+# -- Output --
+#
+
+### Output configuration
+#
+# Example configuration:
+#
+output eDP-1 resolution 1920x1080 position 1920,0
+
+#
+# -- Theme --
+#
+
+# Apply gtk theming
+exec_always ~/.config/sway/scripts/import-gsettings
+
+# Set inner/outer gaps
+gaps inner 6
+gaps outer 3
+
+# Hide titlebar on windows:
+default_border pixel 2
+
+# Default Font
+font pango:Noto Sans Regular 10
+
+# Thin borders:
+smart_borders on
+
+# Set wallpaper:
+exec ~/.azotebg
+
+# Focus follows mouse:
+focus_follows_mouse no
+
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+client.background       #F8F8F2
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    swaybar_command waybar
+}
