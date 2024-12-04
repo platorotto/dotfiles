@@ -8,7 +8,7 @@
 #
 
 # Auth with mate-polkit:
-exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
+exec /usr/libexec/polkit-mate-authentication-agent-1
 
 # Import environment variables for user systemd service manager
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
