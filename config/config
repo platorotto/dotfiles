@@ -1,0 +1,146 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    // "height": 30, // Auto-height is used when commented
+    // "width": 1280, // Full screen width when commented
+    "spacing": 16, // Gaps between modules (in px)
+    // See `man waybar` for more configuration options
+
+// Configuration - modules-left
+
+    "modules-left": [
+        "custom/launcher",
+        "sway/workspaces",
+        "sway/mode",
+    ],
+
+    "custom/launcher": {
+        "format":"<span size='x-large'></span>",
+        "on-click": "exec nwg-drawer",
+        "tooltip": false
+    },
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10"
+        }
+    },
+
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>",
+        "tooltip": false
+    },
+
+// Configuration - modules-center
+    
+    "modules-center": [
+        "clock"
+    ],
+
+    "clock": {
+        "format": "{:%d %b %H:%M}",
+        "format-alt": "{:%d %b %OI:%M %p}",
+        "tooltip-format": " {:%A %m/%d}\n\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "on-scroll": 1,
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            },
+        },
+        "actions": {
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        },
+    },
+
+// Configuration - modules-right
+
+    "modules-right": [
+        "idle_inhibitor",
+        "backlight",
+        "pulseaudio",
+        "battery",
+        "network",
+        "tray",
+        "custom/power"
+    ],
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip-format-activated": "Idle Inhibitor Activated",
+        "tooltip-format-deactivated": "Idle Inhibitor Deactivated"
+    },
+
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰄰", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"],
+        "tooltip-format": "Backlight (Scroll): {percent:}%",
+        "on-scroll-down": "brightnessctl -c backlight set 5%-",
+        "on-scroll-up": "brightnessctl -c backlight set +5%"
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{icon} {volume}%",
+        "format-muted":"󰝟 muted",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["󰕿 ", "󰖀 ", "󰕾 "]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "battery": {
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "network": {
+        "format-disabled": " Disabled",
+        "format-wifi": " {essid}",
+        "tooltip-format-wifi": "{bandwidthDownBits:>} 󰶡 {bandwidthUpBits:>} 󰶣",
+        "format-ethernet": "󰈀 Wired",
+        "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+        "format-disconnected": " Disconnected",
+        "on-click": "footclient -T waybar_nmtui -e nmtui",
+        "interval": 2
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing":10
+     },
+
+    "custom/power": {
+        "format":"⏻",
+        "on-click": "exec ~/.config/sway/scripts/power_menu.sh",
+        "tooltip": false
+    },
+}
