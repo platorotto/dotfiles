@@ -20,6 +20,9 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 # Start foot server
 exec_always --no-startup-id foot --server
 
+# Gammastep
+exec gammastep -l 9:-83
+
 # Network Applet
 exec nm-applet --indicator
 
