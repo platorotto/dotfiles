@@ -119,7 +119,7 @@ menu=(
   [  Audio]="pavucontrol"
   [󰍹  Display]="arandr"
   [  OpenRGB]="openrgb"
-
+)
 
 menu_nrows=${#menu[@]}
 
