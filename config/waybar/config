@@ -1,8 +1,8 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    // "height": 30, // Auto-height is used when commented
-    // "width": 1280, // Full screen width when commented
+    // "height": 24, // Auto-height is used when commented
+    // "width": 100%, // Full screen width when commented
     "spacing": 16, // Gaps between modules (in px)
     // See `man waybar` for more configuration options
 
@@ -70,8 +70,6 @@
 // Configuration - modules-right
 
     "modules-right": [
-        "idle_inhibitor",
-        "backlight",
         "pulseaudio",
         "battery",
         "network",
@@ -79,28 +77,10 @@
         "custom/power"
     ],
 
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        },
-        "tooltip-format-activated": "Idle Inhibitor Activated",
-        "tooltip-format-deactivated": "Idle Inhibitor Deactivated"
-    },
-
-    "backlight": {
-        "format": "{icon} {percent}%",
-        "format-icons": ["󰄰", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"],
-        "tooltip-format": "Backlight (Scroll): {percent:}%",
-        "on-scroll-down": "brightnessctl -c backlight set 5%-",
-        "on-scroll-up": "brightnessctl -c backlight set +5%"
-    },
-
     "pulseaudio": {
         "scroll-step": 5,
         "format": "{icon} {volume}%",
-        "format-muted":"󰝟 muted",
+        "format-muted":"muted",
         "format-icons": {
             "headphones": "",
             "handsfree": "",
@@ -108,7 +88,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["󰕿 ", "󰖀 ", "󰕾 "]
+            "default": [""]
         },
         "on-click": "pavucontrol"
     },
