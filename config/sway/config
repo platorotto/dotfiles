@@ -3,162 +3,91 @@
 # Va para ~/.config/sway/config
 #
 
-#
-# -- Autostart Applications --
-#
+# -- Theme --
+default_border pixel 2
+gaps inner 6
+gaps outer 3
+set $mod Mod4
+bindsym $mod+Return exec alacritty
+focus_follows_mouse no
+font pango:Noto Sans Regular 10
 
-# Auth with mate-polkit:
-exec /usr/libexec/polkit-mate-authentication-agent-1
-
-# Import environment variables for user systemd service manager
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-
-# Update dbux environments with display variables
-exec hash dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-
-# Start foot server
-exec_always --no-startup-id foot --server
-
-# Gammastep
-exec gammastep -l 9:-83
-
-# Network Applet
-exec nm-applet --indicator
-
-# Firewall Applet
-exec sleep 2 && firewall-applet
-
-# Bluetooth Applet
+# -- Autostart --
+exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
+exec nm-applet
 exec blueman-applet 
+exec firewall-applet
+exec gammastep -l 9:-83
+exec waypaper --restore
 
-# nwg-drawer
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+	dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec_always ~/.config/sway/scripts/import-gsettings
 exec_always nwg-drawer -r -c 7 -is 90 -mb 10 -ml 50 -mr 50 -mt 10
 
-#
-# -- Default --
-#
+exec swayidle -w \
+	timeout 300 'swaylock -f' \
+	timeout 420 'swaymsg "output * power off"' \
+	resume 'swaymsg "output * power on"'
 
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
+# -- Basic Bindings --
+bindsym XF86AudioRaiseVolume exec pamixer -ui 5
+bindsym XF86AudioLowerVolume exec pamixer -ud 5
+bindsym XF86AudioMute exec pamixer --toggle-mute
 
-# Add Vim key support
-set $left h
-set $down j
-set $up k
-set $right l
+bindsym XF86MonBrightnessUp exec brightnessctl -c backlight set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl -c backlight set 5%-
 
-# Set default terminal emulator
-set $term footclient
+bindsym Print exec grim -g "$(slurp)" - | swappy -f -
 
-# Application launcher
-set $launcher fuzzel
+bindsym $mod+q 		kill
+bindsym $mod+r		mode "resize"
+bindsym $mod+d 		exec fuzzel
+bindsym $mod+f 		exec firefox
+bindsym $mod+b		exec brave --incognito
+bindsym $mod+n 		exec alacritty -e ranger
+bindsym $mod+Shift+e 	exec ~/.config/sway/scripts/power_menu.sh
+bindsym $mod+Shift+r 	reload
 
-# Application menu
-set $menu nwg-drawer
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
-# Power Menu
-set $powermenu ~/.config/sway/scripts/power_menu.sh
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
-### Idle configuration
-exec swayidle idlehint 1
-exec_always swayidle -w before-sleep "$lock"
-set $lock swaylock -C ~/.config/swaylock/config
+bindsym $mod+Control+h splith
+bindsym $mod+Control+v splitv
 
-### Key bindings
-#
-# Basics:
-#
-    # Launch the terminal
-    bindsym $mod+Return exec $term
+# -- Workspace Bindings --
+bindcode $mod+10 workspace number 1
+bindcode $mod+11 workspace number 2
+bindcode $mod+12 workspace number 3
+bindcode $mod+13 workspace number 4
+bindcode $mod+14 workspace number 5
+bindcode $mod+15 workspace number 6
+bindcode $mod+16 workspace number 7
+bindcode $mod+17 workspace number 8
+bindcode $mod+18 workspace number 9
+bindcode $mod+19 workspace number 10
 
-    # Open the power menu
-    bindsym $mod+Shift+e exec $powermenu
+bindcode $mod+Shift+10 move container to workspace number 1
+bindcode $mod+Shift+11 move container to workspace number 2
+bindcode $mod+Shift+12 move container to workspace number 3
+bindcode $mod+Shift+13 move container to workspace number 4
+bindcode $mod+Shift+14 move container to workspace number 5
+bindcode $mod+Shift+15 move container to workspace number 6
+bindcode $mod+Shift+16 move container to workspace number 7
+bindcode $mod+Shift+17 move container to workspace number 8
+bindcode $mod+Shift+18 move container to workspace number 9
+bindcode $mod+Shift+19 move container to workspace number 10
 
-    # Kill focused window
-    bindsym $mod+q kill
-
-    # Start your launcher
-    bindsym $mod+d exec $launcher
-
-    # Menu
-    bindsym $mod+Shift+d exec $menu
-
-    # Lock screen
-    bindsym $mod+f1 exec $lock
-
-    # Activities
-    bindsym $mod+p exec ~/.config/sway/scripts/window_switcher.sh
-
-    # Reload the configuration file
-    bindsym $mod+Shift+r reload
-
-#
-# Moving around:
-#
-    bindsym {
-        # Vim key support
-        $mod+$left focus left
-        $mod+$down focus down
-        $mod+$up focus up
-        $mod+$right focus right
-
-        # Vim key support
-        $mod+Shift+$left move left
-        $mod+Shift+$down move down
-        $mod+Shift+$up move up
-        $mod+Shift+$right move right
-    }
-
-#
-# Workspaces:
-#
-    # Workspace bindings are using bindcode instead of bindsym for better Azerty compatibility.
-    # https://github.com/EndeavourOS-Community-Editions/sway/pull/81
-    # Use wev to find keycodes for setting up other bindings this way.
-
-    bindcode {
-        # Switch to workspace
-        $mod+10 workspace number 1
-        $mod+11 workspace number 2
-        $mod+12 workspace number 3
-        $mod+13 workspace number 4
-        $mod+14 workspace number 5
-        $mod+15 workspace number 6
-        $mod+16 workspace number 7
-        $mod+17 workspace number 8
-        $mod+18 workspace number 9
-        $mod+19 workspace number 10
-
-        # Move focused container to workspace
-        $mod+Shift+10 move container to workspace number 1
-        $mod+Shift+11 move container to workspace number 2
-        $mod+Shift+12 move container to workspace number 3
-        $mod+Shift+13 move container to workspace number 4
-        $mod+Shift+14 move container to workspace number 5
-        $mod+Shift+15 move container to workspace number 6
-        $mod+Shift+16 move container to workspace number 7
-        $mod+Shift+17 move container to workspace number 8
-        $mod+Shift+18 move container to workspace number 9
-        $mod+Shift+19 move container to workspace number 10
-    }
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
-
-#
-# Layout stuff:
-#
-    # Set how the current window will be split
-    # Split the window vertically
-    bindsym $mod+v splitv
-    # Split the window horizontally
-    bindsym $mod+b splith
-
-#
-# Resizing containers:
-#
-    mode "resize" {
-        bindsym l resize shrink width 10 px or 10 ppt
+mode "resize" {
+	bindsym l resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym j resize shrink height 10 px or 10 ppt
         bindsym h resize grow width 10 px or 10 ppt
@@ -166,66 +95,15 @@ set $lock swaylock -C ~/.config/swaylock/config
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 	bindsym $mod+r mode "default"
-    }
+}
 
-#
-# Media Keys
-#
-    bindsym {
-        # Volume
-        XF86AudioRaiseVolume exec pamixer -ui 5
-        XF86AudioLowerVolume exec pamixer -ud 5
-        XF86AudioMute exec pamixer --toggle-mute
-
-        # Player
-        XF86AudioPlay exec playerctl play-pause
-        XF86AudioNext exec playerctl next
-        XF86AudioPrev exec playerctl previous
-
-        # Backlight
-        XF86MonBrightnessUp exec brightnessctl -c backlight set +5%
-        XF86MonBrightnessDown exec brightnessctl -c backlight set 5%-
-    }
-
-#
-# App shortcuts
-#
-    # Launch the file explorer
-    bindsym $mod+n exec foot -e ranger
-
-    # Launch the browser
-    bindsym $mod+f exec firefox
-
-#
-# Screenshots
-#
-    # Snip a selection and pipe to swappy
-    bindsym print exec grim -g "$(slurp)" - | swappy -f -
-    # Screenshot a window and pipe to swappy
-    bindsym Ctrl+Print exec ~/.config/sway/scripts/screenshot_window.sh
-    # Screenshot the current display and pipe to swappy
-    bindsym Shift+Print exec ~/.config/sway/scripts/screenshot_display.sh
-
-#
-# -- Input -- 
-#
-
-### Input configuration
-#
-# Read `man 5 sway-input` for more information about this section.
-
-# Touchpad configuration
+# -- Input --
 input type:touchpad {
     dwt enabled
     tap enabled
     natural_scroll enabled
 }
 
-# Enable numlock by default
-input type:keyboard xkb_numlock enabled
-
-# # Toggle between keyboard layouts. This example has the "us" and "gb"
-# # keyboard layouts, and uses Alt+Shift to toggle between them.
 input "type:keyboard" {
 	xkb_layout "us"
 	xkb_variant "altgr-intl"
@@ -236,42 +114,15 @@ input "type:pointer" {
 	accel_profile "flat"
 }
 
-#
 # -- Output --
-#
+output eDP-1 resolution 1920x1080@60Hz
 
-### Output configuration
-#
-# Example configuration:
-#
-output eDP-1 resolution 1920x1080 position 1920,0
+# -- Waybar --
 
-#
-# -- Theme --
-#
-
-# Apply gtk theming
-exec_always ~/.config/sway/scripts/import-gsettings
-
-# Set inner/outer gaps
-gaps inner 6
-gaps outer 3
-
-# Hide titlebar on windows:
-default_border pixel 2
-
-# Default Font
-font pango:Noto Sans Regular 10
-
-# Thin borders:
-smart_borders on
-
-# Set wallpaper:
-exec ~/.azotebg
-
-# Focus follows mouse:
-focus_follows_mouse no
-
+bar {
+    swaybar_command waybar
+}
+ 
 # class                 border  bground text    indicator child_border
 client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
 client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
@@ -279,11 +130,3 @@ client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
 client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.background       #F8F8F2
-
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-    swaybar_command waybar
-}
