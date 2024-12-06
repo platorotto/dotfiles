@@ -14,6 +14,7 @@ font pango:Noto Sans Regular 10
 
 # -- Autostart --
 exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
+exec /usr/libexec/polkit-mate-authentication-agent-1
 exec nm-applet
 exec blueman-applet 
 exec sleep 2 && firewall-applet
