@@ -16,7 +16,7 @@ font pango:Noto Sans Regular 10
 exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
 exec nm-applet
 exec blueman-applet 
-exec firewall-applet
+exec sleep 2 && firewall-applet
 exec gammastep -l 9:-83
 exec waypaper --restore
 
