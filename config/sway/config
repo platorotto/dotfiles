@@ -46,7 +46,7 @@ bindsym $mod+q 		kill
 bindsym $mod+r		mode "resize"
 bindsym $mod+d 		exec fuzzel
 bindsym $mod+f 		exec firefox
-bindsym $mod+b		exec brave --incognito
+bindsym $mod+b		exec flatpak run con.brave.Browser --incognito
 bindsym $mod+n 		exec alacritty -e ranger
 bindsym $mod+Shift+e 	exec ~/.config/sway/scripts/power_menu.sh
 bindsym $mod+Shift+r 	reload
