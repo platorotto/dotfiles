@@ -40,7 +40,7 @@ bindsym $mod+r			mode "resize"
 bindsym $mod+d 			exec --no-startup-id rofi -modi drun -show drun \
 				-config ~/.config/rofi/rofidmenu.rasi
 bindsym $mod+f 			exec --no-startup-id firefox
-bindsym $mod+b			exec --no-startup-id brave --incognito
+bindsym $mod+b			exec --no-startup-id flatpak run com.brave.Browser --incognito
 bindsym $mod+n			exec alacritty -e ranger
 bindsym $mod+Shift+e 		exec --no-startup-id bash ~/.config/i3/scripts/powermenu
 bindsym $mod+Shift+r 		restart
