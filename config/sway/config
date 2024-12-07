@@ -13,7 +13,6 @@ focus_follows_mouse no
 font pango:Noto Sans Regular 10
 
 # -- Autostart --
-exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
 exec /usr/libexec/polkit-mate-authentication-agent-1
 exec nm-applet
 exec blueman-applet 
@@ -21,10 +20,8 @@ exec sleep 2 && firewall-applet
 exec gammastep -l 9:-83
 exec waypaper --restore
 
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec hash dbus-update-activation-environment 2>/dev/null && \
-	dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec_always ~/.config/sway/scripts/import-gsettings
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec_always nwg-drawer -r -c 7 -is 90 -mb 10 -ml 50 -mr 50 -mt 10
 
 exec swayidle -w \
