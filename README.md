@@ -6,3 +6,5 @@ listado de los paquetes a instalar en Fedora
 `dnf copr enable` - iucar/rstudio tofik/nwg-shell solopasha/hyprland 
 
 `flatpak` - com.brave.Browser com.modrinth.ModrinthApp com.obsproject.Studio com.spotify.Client org.onlyoffice.desktopeditors org.zotero.Zotero
+
+`R` - tidyverse (ggplot2, tidyr, dplyr, haven) DescTools corrplot jtools BSDA ggpmisc
