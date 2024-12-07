@@ -5,4 +5,4 @@ listado de los paquetes a instalar en Fedora
 
 `dnf copr enable` - iucar/rstudio tofik/nwg-shell solopasha/hyprland 
 
-`flatpak` - com.brave.Browser com.modrinth.ModrinthApp com.obsproject.Studio com.spotify.Client org.onlyoffice.desktopeditors org.zotero.Zotero us.zoom.Zoom
+`flatpak` - com.brave.Browser com.modrinth.ModrinthApp com.obsproject.Studio com.spotify.Client org.onlyoffice.desktopeditors org.zotero.Zotero
