@@ -1,7 +1,7 @@
 # Dotfiles de Plato
 listado de los paquetes a instalar en Fedora
 
-`x11` - R alacritty arandr blueman brightnessctl fastfetch firewall-applet flameshot gnome-themes-extra htop i3 i3lock imv kvantum libcurl-devel lightdm-settings lxappearance mate-polkit nitrogen nm-applet openrgb openssl-devel pavucontrol polybar ranger redshift rofi rstudio-desktop tlp tlp-rdw vim xss-lock git
+`x11` - R alacritty arandr blueman brightnessctl fastfetch firewall-applet flameshot gnome-themes-extra htop i3 i3lock imv kvantum libcurl-devel lightdm-settings lxappearance mate-polkit nitrogen nm-applet openrgb openssl-devel pavucontrol polybar ranger redshift rofi rstudio-desktop tlp tlp-rdw vim xss-lock git picom
 
 `wayland` - R alacritty blueman brightnessctl fastfetch firewall-applet fuzzel gammastep gnome-themes-extra grim htop imv kvantum libcurl-devel mate-polkit nm-applet nwg-drawer nwg-look openrgb openssl-devel pamixer pavucontrol ranger rstudio-desktop slurp swappy sway swaybg swayidle swaylock tlp tlp-rdw vim waybar waypaper wdisplays
 
