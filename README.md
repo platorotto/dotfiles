@@ -10,3 +10,5 @@ listado de los paquetes a instalar en Fedora
 `flatpak` - com.brave.Browser com.modrinth.ModrinthApp com.obsproject.Studio com.spotify.Client org.onlyoffice.desktopeditors org.zotero.Zotero us.zoom.Zoom
 
 `R` - tidyverse (ggplot2, tidyr, dplyr, haven) DescTools corrplot jtools BSDA ggpmisc
+
+`pacman` - r gcc-fortran alacritty arandr bluez bluez-utils blueman brightnessctl fastfetch firewalld flameshot i3-wm i3lock imv kvantum lxappearance lxsession nitrogen openrgb pavucontrol polybar ranger redshift rofi tlp rlp-rdw vim xss-lock git picom zathura zathura-pdf-poppler fuzzel gammastep htop nwg-drawer nwg-look nwg-displays pamixer sway swaybg swayidle swaylock waybar obs-studio spotify-launcher
