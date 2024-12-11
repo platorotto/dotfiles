@@ -17,8 +17,8 @@ exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id firewall-applet
-exec --no-startup-id redshift -l 9:-83
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id gammastep -l 10:-84
+exec --no-startup-id ~/.azotebg
 
 exec --no-startup-id picom -b --backend glx --vsync
 exec --no-startup-id dex --autostart --environment i3
@@ -26,9 +26,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # -- Basic Bindings --
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -ui 5
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -ud 5
+bindsym XF86AudioMute exec --no-startup-id pamixer --toggle-mute
 
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
@@ -39,7 +39,7 @@ bindsym $mod+q			kill
 bindsym $mod+r			mode "resize"
 bindsym $mod+d 			exec --no-startup-id rofi -modi drun -show drun \
 				-config ~/.config/rofi/rofidmenu.rasi
-bindsym $mod+f 			exec --no-startup-id firefox
+bindsym $mod+f 			exec --no-startup-id flatpak run org.mozilla.firefox
 bindsym $mod+b			exec --no-startup-id flatpak run com.brave.Browser --incognito
 bindsym $mod+n			exec alacritty -e ranger
 bindsym $mod+Shift+e 		exec --no-startup-id bash ~/.config/i3/scripts/powermenu
@@ -55,8 +55,8 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-bindsym $mod+Control+h split h
-bindsym $mod+Control+v split v
+bindsym $mod+Control+h splith
+bindsym $mod+Control+v splitv
 
 # -- Workspace Bindings --
 set $ws1 "1"
