@@ -13,7 +13,7 @@ focus_follows_mouse no
 font pango:NotoSansRegular;2
 
 # -- Autostart --
-exec --no-startup-id /usr/libexec/polkit-mate-authentication-agent-1
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id firewall-applet
