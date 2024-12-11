@@ -1,6 +1,7 @@
 /*******************************************************
  * ROFI Arch Dark Transparent colors for EndeavourOS
  * Maintainer: joekamprad [joekamprad //a_t// endeavouros.com]
+ * Va para ~/.local/share/rofi/themes/
  *******************************************************/
 * {
     selected-normal-foreground:  rgba ( 255, 147, 5, 100 % );
