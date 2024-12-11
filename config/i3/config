@@ -18,7 +18,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id firewall-applet
 exec --no-startup-id gammastep -l 10:-84
-exec --no-startup-id ~/.azotebg
+exec --no-startup-id nitrogen --restore
 
 exec --no-startup-id picom -b --backend glx --vsync
 exec --no-startup-id dex --autostart --environment i3
@@ -39,7 +39,7 @@ bindsym $mod+q			kill
 bindsym $mod+r			mode "resize"
 bindsym $mod+d 			exec --no-startup-id rofi -modi drun -show drun \
 				-config ~/.config/rofi/rofidmenu.rasi
-bindsym $mod+f 			exec --no-startup-id flatpak run org.mozilla.firefox
+bindsym $mod+f 			exec --no-startup-id firefox
 bindsym $mod+b			exec --no-startup-id flatpak run com.brave.Browser --incognito
 bindsym $mod+n			exec alacritty -e ranger
 bindsym $mod+Shift+e 		exec --no-startup-id bash ~/.config/i3/scripts/powermenu
