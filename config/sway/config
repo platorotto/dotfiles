@@ -13,7 +13,7 @@ focus_follows_mouse no
 font pango:Noto Sans Regular 10
 
 # -- Autostart --
-exec /usr/libexec/polkit-mate-authentication-agent-1
+exec /usr/lib/polkit-kde-authentication-agent-1
 exec nm-applet
 exec blueman-applet 
 exec sleep 2 && firewall-applet
