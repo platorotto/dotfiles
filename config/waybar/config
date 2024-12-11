@@ -16,7 +16,6 @@
 
     "custom/launcher": {
         "format":"<span size='x-large'></span>",
-        "on-click": "exec nwg-drawer",
         "tooltip": false
     },
 
@@ -90,7 +89,7 @@
             "car": "",
             "default": [""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pamixer --toggle-mute"
     },
 
     "battery": {
@@ -109,7 +108,6 @@
         "format-ethernet": "󰈀 Wired",
         "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
         "format-disconnected": " Disconnected",
-        "on-click": "footclient -T waybar_nmtui -e nmtui",
         "interval": 2
     },
 
