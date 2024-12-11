@@ -22,7 +22,6 @@ exec ~/.azotebg
 
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-exec_always nwg-drawer -r -c 7 -is 90 -mb 10 -ml 50 -mr 50 -mt 10
 
 exec swayidle -w \
 	timeout 300 'swaylock -f' \
@@ -37,12 +36,12 @@ bindsym XF86AudioMute exec pamixer --toggle-mute
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
-bindsym Print exec flameshot gui
+bindsym Print exec grim -g "$(slurp)" - | swappy -f -
 
 bindsym $mod+q 		kill
 bindsym $mod+r		mode "resize"
 bindsym $mod+d 		exec fuzzel
-bindsym $mod+f 		exec flatpak run org.mozilla.firefox
+bindsym $mod+f 		exec firefox
 bindsym $mod+b		exec flatpak run com.brave.Browser --incognito
 bindsym $mod+n 		exec alacritty -e ranger
 bindsym $mod+Shift+e 	exec ~/.config/sway/scripts/power_menu.sh
