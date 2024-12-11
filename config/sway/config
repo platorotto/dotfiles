@@ -17,8 +17,8 @@ exec /usr/lib/polkit-kde-authentication-agent-1
 exec nm-applet
 exec blueman-applet 
 exec sleep 2 && firewall-applet
-exec gammastep -l 9:-83
-exec waypaper --restore
+exec gammastep -l 10:-84
+exec ~/.azotebg
 
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
@@ -34,15 +34,15 @@ bindsym XF86AudioRaiseVolume exec pamixer -ui 5
 bindsym XF86AudioLowerVolume exec pamixer -ud 5
 bindsym XF86AudioMute exec pamixer --toggle-mute
 
-bindsym XF86MonBrightnessUp exec brightnessctl -c backlight set +5%
-bindsym XF86MonBrightnessDown exec brightnessctl -c backlight set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
-bindsym Print exec grim -g "$(slurp)" - | swappy -f -
+bindsym Print exec flameshot gui
 
 bindsym $mod+q 		kill
 bindsym $mod+r		mode "resize"
 bindsym $mod+d 		exec fuzzel
-bindsym $mod+f 		exec firefox
+bindsym $mod+f 		exec flatpak run org.mozilla.firefox
 bindsym $mod+b		exec flatpak run com.brave.Browser --incognito
 bindsym $mod+n 		exec alacritty -e ranger
 bindsym $mod+Shift+e 	exec ~/.config/sway/scripts/power_menu.sh
