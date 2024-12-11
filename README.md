@@ -1,14 +1,32 @@
 # Dotfiles de Plato
-listado de los paquetes a instalar en Fedora
+listado de los paquetes a instalar
 
-`x11` - R alacritty arandr blueman brightnessctl fastfetch firewall-applet flameshot gnome-themes-extra htop i3 i3lock imv kvantum libcurl-devel lightdm-settings lxappearance mate-polkit nitrogen nm-applet openrgb openssl-devel pavucontrol polybar ranger redshift rofi rstudio-desktop tlp tlp-rdw vim xss-lock git picom zathura zathura-pdf-poppler
+---
 
-`wayland` - R alacritty blueman brightnessctl fastfetch firewall-applet fuzzel gammastep gnome-themes-extra grim htop imv kvantum libcurl-devel mate-polkit nm-applet nwg-drawer nwg-look openrgb openssl-devel pamixer pavucontrol ranger rstudio-desktop slurp swappy sway swaybg swayidle swaylock tlp tlp-rdw vim waybar waypaper wdisplays
+## Fedora
 
-`dnf copr enable` - iucar/rstudio tofik/nwg-shell solopasha/hyprland 
+`copr` - iucar/rstudio tofik/nwg-shell
 
-`flatpak` - com.brave.Browser com.modrinth.ModrinthApp com.obsproject.Studio com.spotify.Client org.onlyoffice.desktopeditors org.zotero.Zotero us.zoom.Zoom
+`dnf` - R alacritty blueman brightnessctl fastfetch firewall-applet gammastep git gnome-themes-extra htop imv libcurl-devel lightdm-settings nm-applet nwg-look openssl-devel pamixer pavucontrol polkit-kde ranger rstudio-desktop tlp tlp-rdw vim zathura zathura-pdf-poppler 
 
-`R` - tidyverse (ggplot2, tidyr, dplyr, haven) DescTools corrplot jtools BSDA ggpmisc
+`i3` - arandr feh flameshot i3-wm i3lock nitrogen picom polybar rofi xss-lock
 
-`pacman` - r gcc-fortran alacritty arandr bluez bluez-utils blueman brightnessctl fastfetch firewalld flameshot i3-wm i3lock imv kvantum lxappearance lxsession nitrogen openrgb pavucontrol polybar ranger redshift rofi tlp rlp-rdw vim xss-lock git picom zathura zathura-pdf-poppler fuzzel gammastep htop nwg-drawer nwg-look nwg-displays pamixer sway swaybg swayidle swaylock waybar obs-studio spotify-launcher
+`sway` - azote fuzzel grim nwg-displays slurp swappy sway swaybg swayidle swaylock waybar
+
+---
+
+## Arch
+
+`pacman` - alacritty blueman bluez bluez-utils brightnessctl fastfetch firewalld flatpak gammastep gcc-fortran git htop imv libnotify nwg-look pamixer pavucontrol power-profiles-daemon python-pyqt5 r ranger system-config-printer vim zathura zathura-pdf-poppler
+
+`i3wm` - arandr feh flameshot i3-wm i3lock nitrogen picom polybar rofi xss-lock
+
+`sway` - azote fuzzel grim nwg-displays slurp swappy sway swaybg swayidle swaylock waybar
+
+---
+
+## General
+
+`flatpak` - com.brave.Browser com.modrinth.ModrinthApp com.obsproject.Studio com.spotify.Client org.mozilla.firefox org.onlyoffice.desktopeditors org.openrgb.OpenRGB org.zotero.Zotero us.zoom.Zoom
+
+`R` - BSDA DescTools corrplot ggpmisc jtools tidyverse (dplyr, ggplot2, haven, tidyr)
