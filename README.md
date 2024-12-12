@@ -29,4 +29,4 @@ listado de los paquetes a instalar
 
 `flatpak` - com.brave.Browser com.discordapp.Discord com.modrinth.ModrinthApp com.obsproject.Studio com.spotify.Client org.mozilla.firefox org.onlyoffice.desktopeditors org.openrgb.OpenRGB org.zotero.Zotero us.zoom.Zoom
 
-`R` - BSDA DescTools corrplot ggpmisc jtools tidyverse (dplyr, ggplot2, haven, tidyr)
+`R` - BSDA DescTools corrplot ggpmisc jtools reshape2 tidyverse (dplyr, ggplot2, haven, tidyr)
