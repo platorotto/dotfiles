@@ -27,6 +27,6 @@ listado de los paquetes a instalar
 
 ## General
 
-`flatpak` - com.brave.Browser com.modrinth.ModrinthApp com.obsproject.Studio com.spotify.Client org.mozilla.firefox org.onlyoffice.desktopeditors org.openrgb.OpenRGB org.zotero.Zotero us.zoom.Zoom
+`flatpak` - com.brave.Browser com.discordapp.Discord com.modrinth.ModrinthApp com.obsproject.Studio com.spotify.Client org.mozilla.firefox org.onlyoffice.desktopeditors org.openrgb.OpenRGB org.zotero.Zotero us.zoom.Zoom
 
 `R` - BSDA DescTools corrplot ggpmisc jtools tidyverse (dplyr, ggplot2, haven, tidyr)
