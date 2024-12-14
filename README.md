@@ -7,13 +7,13 @@ listado de los paquetes a instalar
 
 `copr` - iucar/rstudio tofik/nwg-shell
 
-`dnf` - R rstudio-desktop ranger vim htop fastfetch git alacritty lightdm-settings lightdm
+`dnf` - R rstudio-desktop ranger vim htop fastfetch git lightdm lightdm-settings
 
- blueman brightnessctl fastfetch firewall-applet gammastep gnome-themes-extra imv nm-applet nwg-look pamixer pavucontrol polkit-kde tlp tlp-rdw zathura zathura-pdf-poppler 
+ blueman firewall-applet gnome-themes-extra imv nm-applet nwg-look tlp tlp-rdw  
 
 `i3` - arandr feh flameshot i3-wm i3lock nitrogen picom polybar rofi xss-lock
 
-`sway` - azote fuzzel grim nwg-displays slurp swappy sway swaybg swayidle swaylock waybar
+`sway` - alacritty sway waybar grim slurp swappy brightnessctl gammastep wdisplays azote fuzzel sway waybar
 
 ---
 
