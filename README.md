@@ -7,7 +7,7 @@ listado de los paquetes a instalar
 
 `copr` - iucar/rstudio tofik/nwg-shell
 
-`dnf` - R rstudio-desktop ranger vim htop fastfetch git lightdm lightdm-settings
+`dnf` - R rstudio-desktop ranger vim htop fastfetch git lightdm lightdm-settings network-manager-applet blueman
 
 `i3` - arandr feh flameshot i3-wm i3lock nitrogen picom polybar rofi xss-lock
 
