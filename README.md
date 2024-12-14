@@ -5,23 +5,9 @@ listado de los paquetes a instalar
 
 ## Fedora
 
-`copr` - iucar/rstudio tofik/nwg-shell
+`copr` - iucar/rstudio
 
-`dnf` - R rstudio-desktop ranger vim htop fastfetch git lightdm lightdm-settings network-manager-applet blueman
-
-`i3` - arandr feh flameshot i3-wm i3lock nitrogen picom polybar rofi xss-lock
-
-`sway` - alacritty sway waybar grim slurp swappy brightnessctl gammastep wdisplays azote fuzzel sway waybar
-
----
-
-## Arch
-
-`pacman` - alacritty blueman bluez bluez-utils brightnessctl fastfetch firewalld flatpak gammastep gcc-fortran git htop imv libnotify nwg-look pamixer pavucontrol power-profiles-daemon python-pyqt5 r ranger system-config-printer vim zathura zathura-pdf-poppler
-
-`i3wm` - arandr feh flameshot i3-wm i3lock nitrogen picom polybar rofi xss-lock
-
-`sway` - azote fuzzel grim nwg-displays slurp swappy sway swaybg swayidle swaylock waybar
+`dnf` - R alacritty azote blueman brightnessctl fastfetch fuzzel gammastep git grim htop lightdm network-manager-applet ranger rstudio-desktop slurp swappy sway vim waybar wdisplays
 
 ---
 
