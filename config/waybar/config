@@ -89,7 +89,6 @@
             "car": "",
             "default": [""]
         },
-        "on-click": "pamixer --toggle-mute"
     },
 
     "battery": {
@@ -98,7 +97,9 @@
             "critical": 10
         },
         "format": "{icon} {capacity}%",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+	"format-charging": " {capacity}%",
+	"format-full": "{icon} FULL"
     },
 
     "network": {
